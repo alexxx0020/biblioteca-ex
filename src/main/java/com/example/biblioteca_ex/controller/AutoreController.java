@@ -8,5 +8,4 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/autore/api")
 public class AutoreController {
 
-    private AutoreRespository autoreRespository;
 }

@@ -1,5 +1,7 @@
 package com.example.biblioteca_ex.DTO;
 
+import java.util.Objects;
+
 public class LibroDto {
 
     private Long id;
@@ -57,5 +59,18 @@ public class LibroDto {
 
     public void setIdAutore(Long idAutore) {
         this.idAutore = idAutore;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LibroDto libroDto = (LibroDto) o;
+        return annoPubblicazione == libroDto.annoPubblicazione && Objects.equals(titolo, libroDto.titolo) && Objects.equals(genere, libroDto.genere) && Objects.equals(idAutore, libroDto.idAutore);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(titolo, annoPubblicazione, genere, idAutore);
     }
 }

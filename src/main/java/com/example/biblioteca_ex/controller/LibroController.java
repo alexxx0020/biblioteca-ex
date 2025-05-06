@@ -8,5 +8,4 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/libro/api")
 public class LibroController {
 
-    private LibroRepository libroRepository;
 }

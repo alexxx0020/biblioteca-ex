@@ -2,25 +2,27 @@ package com.example.biblioteca_ex.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
-@Table(name = "books")
+@Table(name = "libri")
 public class Libro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "title")
+    @Column(name = "titolo")
     private String titolo;
 
-    @Column(name = "year")
+    @Column(name = "anno_pubblicazione")
     private int annoPubblicazione;
 
-    @Column(name = "gender")
+    @Column(name = "genere")
     private String genere;
 
-    @ManyToOne
-    @JoinColumn(name = "author_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "autore_id")
     private Autore autore;
 
     public Libro(Long id, String titolo, int annoPubblicazione, String genere) {
@@ -68,5 +70,18 @@ public class Libro {
 
     public void setAutore(Autore autore) {
         this.autore = autore;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Libro libro = (Libro) o;
+        return annoPubblicazione == libro.annoPubblicazione && Objects.equals(titolo, libro.titolo) && Objects.equals(genere, libro.genere) && Objects.equals(autore, libro.autore);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(titolo, annoPubblicazione, genere, autore);
     }
 }

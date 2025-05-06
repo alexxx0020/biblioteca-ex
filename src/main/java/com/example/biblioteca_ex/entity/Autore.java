@@ -6,20 +6,20 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "authors")
+@Table(name = "autori")
 public class Autore {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "nome")
     private String nome;
 
-    @Column(name = "nationality")
+    @Column(name = "nazionalità")
     private String nazionalita;
 
-    @Column(name = "birth_date")
+    @Column(name = "data_nascita")
     private LocalDateTime dataNascita;
 
     @OneToMany(mappedBy = "autore")
