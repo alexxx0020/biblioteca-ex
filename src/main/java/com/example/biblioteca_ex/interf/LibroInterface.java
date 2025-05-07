@@ -2,6 +2,8 @@ package com.example.biblioteca_ex.interf;
 
 import com.example.biblioteca_ex.DTO.LibroDto;
 
+import java.util.List;
+
 public interface LibroInterface {
 
     LibroDto createLibro(LibroDto libroDto);
@@ -11,4 +13,6 @@ public interface LibroInterface {
     LibroDto updateLibroById(Long id,LibroDto libroDto);
 
     LibroDto deleteById(Long id);
+
+    List<LibroDto> getAll();
 }
